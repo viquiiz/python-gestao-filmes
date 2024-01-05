@@ -20,7 +20,7 @@ Digite o número da opção desejada:
 '''))
 
         if opcao == 1:
-            cadastrar.cadastrar_filme(id)
+            cadastrar.cadastrar_filme()
             continue
         elif opcao == 2:
             listar.listar_filmes()

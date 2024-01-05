@@ -13,9 +13,10 @@ Escolha o número da opção desejada:
 2. Filtrar por ano
 3. Filtrar por gênero
 4. Filtrar por avaliação
-5. Voltar ao menu principal                                                               
+5. Filtrar por id                            
+6. Voltar ao menu principal                                                               
 '''))
-            if pesquisar == 5:
+            if pesquisar == 6:
                 break
             elif pesquisar == 1:
                 nome = input('Digite o título do filme a ser pesquisado: ')
@@ -78,7 +79,25 @@ e. voltar ao menu anterior
                                 continue
                     else:
                         print('\nVocê digitou uma opção inválida. Tente novamente.')
-                        continue      
+                        continue    
+            elif pesquisar == 5:
+                while True:
+                    try:
+                        pesquisar = int(input('\nDigite o id do filme que deseja pesquisar ou digite "0" para voltar ao menu anterior: '))
+                        if pesquisar == 0:
+                            break
+                        else:
+                            if not any(filme['id'] == pesquisar for filme in lista_filmes['filmes']):
+                                print('\nId {} não encontrado, tente novamente.'.format(pesquisar))
+                                continue
+                            else:
+                                for filme in lista_filmes['filmes']:
+                                    if pesquisar == filme['id']:
+                                        gerenciador_db.print_padrao(filme)
+                                        break
+                    except ValueError:
+                        print('\nDigite apenas números por favor.')
+                        continue
         except ValueError:
             print('\nDigite apenas números por favor.')
             continue
