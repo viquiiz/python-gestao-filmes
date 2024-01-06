@@ -5,7 +5,7 @@ import deletar
 import pesquisar
 
 #programa principal
-print('=== Streamberry ===')
+print('      === Streamberry ===')
 while True:
     try:
         opcao = int(input('''
